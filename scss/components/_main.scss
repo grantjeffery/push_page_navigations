@@ -1,0 +1,153 @@
+@-moz-viewport { width: device-width; scale: 1; }
+@-ms-viewport { width: device-width; scale: 1; }
+@-o-viewport { width: device-width; scale: 1; }
+@-webkit-viewport { width: device-width; scale: 1; }
+@viewport { width: device-width; scale: 1; }
+
+html {
+	box-sizing: border-box;
+	-moz-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	background: #1e5799; /* Old browsers */
+	background: -moz-linear-gradient(top,  #1e5799 0%, #3ab34e 0%, #27aae1 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(0%,#3ab34e), color-stop(100%,#27aae1)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #1e5799 0%,#3ab34e 0%,#27aae1 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #1e5799 0%,#3ab34e 0%,#27aae1 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #1e5799 0%,#3ab34e 0%,#27aae1 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #1e5799 0%,#3ab34e 0%,#27aae1 100%); /* W3C */
+	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	width: 100%;
+  	background-position: 0px 0px;
+}
+
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+
+body{
+  font-family: sans-serif;
+  @include zero;
+  // Hides close button if there is no js
+  &.noscript .close-btn,
+  &.noscript .toggle-btn{
+      display: none;
+  }
+}
+
+header {
+  padding: 0 1em;
+}
+
+
+
+.toggle-btn {
+  position: absolute;
+  right: 1em;
+  top: 0;
+}
+
+.navigation ul {
+  padding: 0;
+  li {
+    list-style-type: none;
+    color: $light-white;
+    &:first-child a {
+      border-top: 1px solid $light-white;
+    }
+  }
+  a {
+    padding: .5em 1em;
+    border-bottom: 1px solid $light-white;
+    text-decoration: none;
+    display: block;
+    color: $light-white;
+    text-align: center;
+  }
+}
+
+.toggle-btn,
+.close-btn {
+  color: $light-white;
+  text-decoration: none;
+  height: 40px;
+  width: 40px;
+  &:before {
+    border: 1px solid $light-white;
+    display: inline-block;
+    padding: 13px 11px;
+    height: 40px;
+    width: 40px;
+  }
+  span {
+    @include element-invisible;
+  }
+}
+
+// Sliding Navigation
+
+  // Page should move when nav opens
+  // This is the ONLY time you will ever use max-width for a mediaquery
+@media only screen and (max-width: 60em){
+  .site-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    z-index: 100;
+
+    .sliding-canvas {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform: translateX(0);
+      transition: all 300ms ease-in-out;
+    }
+
+    &[data-state="slide-open"] .sliding-canvas {
+      transform: translateX(-100%);
+    }
+    &[data-state="slide-open"] {
+      overflow: visible;
+    }
+	}
+
+  // Navigation
+  .slide-menu {
+    // Creates the offset of navigation
+    position: absolute;
+    width: 100%;
+    right: -100%;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    padding: 0;
+    min-height: 800px;
+  }
+} // /max-width media-query
+
+// Reset the page when desktop, even if nav is toggled open
+@media only screen and (min-width: 60em){
+  .toggle-btn,
+  .close-btn {
+    display: none;
+  }
+}
+
+// Show navigation on screen when there is no JS
+body.noscript .slide-menu {
+  position: static;
+  right: auto;
+
+}
+
+h1 {
+	margin: auto;
+}
+
+.imgw {
+	width:50%;
+}
