@@ -122,7 +122,7 @@ header {
   clip: rect(1px, 1px, 1px, 1px);
 }
 
-@media only screen and (max-width: 60em) {
+@media only screen and (max-width: 50em) {
   .site-wrapper {
     position: relative;
     overflow: hidden;
@@ -154,7 +154,7 @@ header {
   }
 }
 
-@media only screen and (min-width: 60em) {
+@media only screen and (min-width: 50em) {
   .toggle-btn,
   .close-btn {
     display: none;
@@ -166,10 +166,20 @@ body.noscript .slide-menu {
   right: auto;
 }
 
-h1 {
-  margin: auto;
-}
-
-.imgw {
-  width: 50%;
+@media only screen and (min-width: 80em) {
+  .navigation ul a {
+    display: inline-block;
+    border: none;
+    float: right;
+  }
+  ul {
+    border: none;
+  }
+  li {
+    border: none;
+    float: right;
+  }
+  h1 {
+    float: left;
+  }
 }

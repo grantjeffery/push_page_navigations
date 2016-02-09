@@ -18,9 +18,9 @@ html {
 	background: -ms-linear-gradient(top,  #1e5799 0%,#3ab34e 0%,#27aae1 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  #1e5799 0%,#3ab34e 0%,#27aae1 100%); /* W3C */
 	background-repeat: no-repeat;
-  	background-attachment: fixed;
-  	width: 100%;
-  	background-position: 0px 0px;
+  background-attachment: fixed;
+  width: 100%;
+  background-position: 0px 0px;
 }
 
 
@@ -42,8 +42,6 @@ body{
 header {
   padding: 0 1em;
 }
-
-
 
 .toggle-btn {
   position: absolute;
@@ -92,7 +90,7 @@ header {
 
   // Page should move when nav opens
   // This is the ONLY time you will ever use max-width for a mediaquery
-@media only screen and (max-width: 60em){
+@media only screen and (max-width: 50em){
   .site-wrapper {
     position: relative;
     overflow: hidden;
@@ -130,7 +128,7 @@ header {
 } // /max-width media-query
 
 // Reset the page when desktop, even if nav is toggled open
-@media only screen and (min-width: 60em){
+@media only screen and (min-width: 50em){
   .toggle-btn,
   .close-btn {
     display: none;
@@ -138,16 +136,34 @@ header {
 }
 
 // Show navigation on screen when there is no JS
+
 body.noscript .slide-menu {
   position: static;
   right: auto;
 
 }
 
-h1 {
-	margin: auto;
+
+@media only screen and (min-width: 80em) {
+
+.navigation ul a {
+  display: inline-block;
+	border: none;
+	float: right;
 }
 
-.imgw {
-	width:50%;
+ul {
+	border: none;
 }
+
+li {
+	border: none;
+ 	float:right;
+
+    }
+
+h1 {
+		 float:left;
+		    }
+
+	}
