@@ -68,6 +68,10 @@ header {
   padding: 0 1em;
 }
 
+h1 {
+  color: #b8eeee;
+}
+
 .toggle-btn {
   position: absolute;
   right: 1em;
